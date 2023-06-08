@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import connectToMongoDB from './controllers/connection.js';
-import { seedQuotes } from './seed/quote-seed.js';
-import { seedEntries } from './seed/entry-seed.js';
-import router from './routes/router.js';
+import connectToMongoDB from '../controllers/connection.js';
+import { seedQuotes } from '../seed/quote-seed.js';
+import { seedEntries } from '../seed/entry-seed.js';
+import router from '../routes/router.js';
 
 dotenv.config();
 const app = express();
