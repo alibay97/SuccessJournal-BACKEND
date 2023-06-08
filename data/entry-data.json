@@ -1,0 +1,20 @@
+[
+  {
+    "entryId": "1",
+    "title": "First Entry",
+    "content": "This is the content of the first entry.",
+    "quote": null
+  },
+  {
+    "entryId": "2",
+    "title": "Second Entry",
+    "content": "This is the content of the second entry.",
+    "quote": null
+  },
+  {
+    "entryId": "3",
+    "title": "Third Entry",
+    "content": "This is the content of the third entry.",
+    "quote": null
+  }
+]

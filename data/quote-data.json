@@ -1,0 +1,16 @@
+[
+  {
+    "quoteId": "1",
+    "quoteText": "Quote 1",
+    "quoteAuthor": "Author 1",
+    "quoteSource": "Source 1",
+    "quoteCategory": "Category 1"
+  },
+  {
+    "quoteId": "2",
+    "quoteText": "Quote 2",
+    "quoteAuthor": "Author 2",
+    "quoteSource": "Source 2",
+    "quoteCategory": "Category 2"
+  }
+]
