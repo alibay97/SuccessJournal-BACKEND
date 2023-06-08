@@ -1,5 +1,7 @@
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
+// import Quote from '../module/quote.js';
+
 import Quote from '../module/quote.js';
 
 async function fetchQuotes() {

@@ -1,5 +1,13 @@
+// import Entry from '../module/entry.js';
+
 import Entry from '../module/entry.js';
-import entryData from '../data/entry-data.json' assert { type: 'json' } ;
+
+// import entryData from '../data/entry-data.json' assert { type: 'json' } ;
+
+import entryData from '../data/entry-data.json' assert { type: 'json' };
+
+// import connectToMongoDB from '../controllers/connection.js'
+
 import connectToMongoDB from '../controllers/connection.js';
 
 async function seedEntries() {
