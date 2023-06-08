@@ -12,6 +12,8 @@ import { seedQuotes } from './seed/quote-seed.js';
 
 import { seedEntries } from './seed/entry-seed.js';
 
+
+
 // import router from './routes/router.js'
 
 import router from './routes/router.js';
