@@ -1,7 +1,13 @@
 import express from 'express';
-import Entry from '../../module/entry.js';
-import Quote from '../../module/quote.js';
-import { fetchQuotes } from '../../fetch/fetch-quote.js';
+// import Entry from '../../module/entry.js';
+
+import Entry from '../module/entry.js';
+
+// import Quote from '../../module/quote.js';
+
+import Quote from '../module/quote.js';
+
+import { fetchQuotes } from '../fetch/fetch-quote.js';
 import fetch from 'node-fetch';
 
 
