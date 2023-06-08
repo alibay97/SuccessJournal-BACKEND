@@ -1,7 +1,10 @@
 import mongoose from 'mongoose';
 import Quote from '../module/quote.js';
 import { fetchQuotes } from '../fetch/fetch-quote.js';
+// import quoteData from '../data/quote-data.json' assert { type: 'json' };
+
 import quoteData from '../data/quote-data.json' assert { type: 'json' };
+
 import connectToMongoDB from '../controllers/connection.js';
 
 async function seedQuotes() {

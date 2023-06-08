@@ -10,24 +10,24 @@ const app = express();
 
 app.use(express.static('client'));
 app.use(express.json());
-app.use('/', router);
+app.use('/api', router);
 
 const port = process.env.PORT || 3000;
 
-async function startServer() {
-  try {
-    await connectToMongoDB();
-    await seedQuotes();
-    await seedEntries();
-    app.listen(port, () => {
-      console.log(`Server is running on port ${port}`);
-    });
-  } catch (error) {
-    console.error('Error starting server:', error);
-  }
-}
+// async function startServer() {
+//   try {
+//     await connectToMongoDB();
+//     await seedQuotes();
+//     await seedEntries();
+//     app.listen(port, () => {
+//       console.log(`Server is running on port ${port}`);
+//     });
+//   } catch (error) {
+//     console.error('Error starting server:', error);
+//   }
+// }
 
-startServer();
+// startServer();
 
 
 export default app

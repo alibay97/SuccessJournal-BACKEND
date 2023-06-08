@@ -8,7 +8,7 @@ import fetch from 'node-fetch';
 const router = express.Router();
 
 // GET /api/entries
-router.get('/api/entries', async (req, res) => {
+router.get('/entries', async (req, res) => {
   try {
     const entries = await Entry.find({});
     res.json(entries);
@@ -19,7 +19,7 @@ router.get('/api/entries', async (req, res) => {
 
 
 // GET /api/quotes
-router.get('/api/quotes', async (req, res) => {
+router.get('/quotes', async (req, res) => {
   try {
     const quotes = await fetchQuotes(); // Fetch third-party quotes
     res.json(quotes);
@@ -30,7 +30,7 @@ router.get('/api/quotes', async (req, res) => {
 
 // POST /api/entries
 
-router.post('/api/entries', async (req, res) => {
+router.post('/entries', async (req, res) => {
   const { Id, title, content, quote } = req.body;
   try {
     const newEntry = new Entry({ Id, title, content, quote });
@@ -44,7 +44,7 @@ router.post('/api/entries', async (req, res) => {
 
 
 // GET /api/entries/:id
-router.get('/api/entries/:id', async (req, res) => {
+router.get('/entries/:id', async (req, res) => {
   const entryId = req.params.id;
   try {
     const entry = await Entry.findById(entryId);
@@ -59,7 +59,7 @@ router.get('/api/entries/:id', async (req, res) => {
 });
 
 // PUT /api/entries/:id
-router.put('/api/entries/:id', async (req, res) => {
+router.put('/entries/:id', async (req, res) => {
   const entryId = req.params.id;
   const { Id, title, content, quote} = req.body;
   try {
@@ -75,7 +75,7 @@ router.put('/api/entries/:id', async (req, res) => {
 });
 
 // DELETE /api/entries/:id
-router.delete('/api/entries/:id', async (req, res) => {
+router.delete('/entries/:id', async (req, res) => {
   const entryId = req.params.id;
   try {
     const deletedEntry = await Entry.findByIdAndDelete(entryId);
