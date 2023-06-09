@@ -26,4 +26,4 @@ QUOTE:
 
 ROUTES:
 <a href="https://ibb.co/JHKM7cg"><img src="https://i.ibb.co/M7s3VgQ/route.png" alt="route" border="0"></a>
-<a href="https://ibb.co/nsBWpWT"><img src="https://i.ibb.co/0jKw5wk/route2.png" alt="route2" border="0"></a>
+<a href="https://ibb.co/1Gp3S87"><img src="https://i.ibb.co/hFnkqDL/router2.png" alt="router2" border="0"></a>
