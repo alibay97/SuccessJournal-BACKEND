@@ -1,24 +1,21 @@
-import fetch from 'node-fetch';
+import axios from 'axios';
 import dotenv from 'dotenv';
-// import Quote from '../module/quote.js';
-
 import Quote from '../module/quote.js';
 
 async function fetchQuotes() {
   const apiKey = process.env.API_KEY;
 
-  const response1 = await fetch(`https://zenquotes.io/api/quotes/${apiKey}&keyword=inspiration`);
-  const response2 = await fetch(`https://zenquotes.io/api/quotes/author/napoleon-hill/${apiKey}`);
-  const response3 = await fetch(`https://zenquotes.io/api/quotes/author/james-allen/${apiKey}`);
+  const response1 = await axios.get(`https://zenquotes.io/api/quotes/${apiKey}&keyword=inspiration`);
+  const response2 = await axios.get(`https://zenquotes.io/api/quotes/author/napoleon-hill/${apiKey}`);
+  const response3 = await axios.get(`https://zenquotes.io/api/quotes/author/james-allen/${apiKey}`);
 
-  console.log('Response 1:', response1);
-  console.log('Response 2:', response2);
-  console.log('Response 3:', response3);
+  console.log('Response 1:', response1.data);
+  console.log('Response 2:', response2.data);
+  console.log('Response 3:', response3.data);
   
-  const data1 = await response1.json();
-  const data2 = await response2.json();
-  const data3 = await response3.json();
-  
+  const data1 = response1.data;
+  const data2 = response2.data;
+  const data3 = response3.data;
   
   const quotes1 = data1.map((quote) => ({
     quoteText: quote.q,

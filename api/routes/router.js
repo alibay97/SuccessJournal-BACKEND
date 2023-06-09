@@ -1,17 +1,29 @@
 import express from 'express';
-// import Entry from '../../module/entry.js';
-
 import Entry from '../module/entry.js';
-
-// import Quote from '../../module/quote.js';
-
 import Quote from '../module/quote.js';
-
 import { fetchQuotes } from '../fetch/fetch-quote.js';
-import fetch from 'node-fetch';
-
 
 const router = express.Router();
+
+// // GET /api/entries
+// router.get('/entries', async (req, res) => {
+//   try {
+//     const entries = await Entry.find({});
+//     res.json(entries);
+//   } catch (error) {
+//     res.status(500).json({ message: 'Error retrieving journal entries', error });
+//   }
+// });
+
+// // GET /api/quotes
+// router.get('/quotes', async (req, res) => {
+//   try {
+//     const quotes = await fetchQuotes();
+//     res.json(quotes);
+//   } catch (error) {
+//     res.status(500).json({ message: 'Error retrieving quotes', error });
+//   }
+// });
 
 // GET /api/entries
 router.get('/entries', async (req, res) => {
@@ -23,31 +35,30 @@ router.get('/entries', async (req, res) => {
   }
 });
 
-
 // GET /api/quotes
 router.get('/quotes', async (req, res) => {
   try {
-    const quotes = await fetchQuotes(); // Fetch third-party quotes
-    res.json(quotes);
+    const quotesFromDB = await Quote.find({});
+    const quotesFromAPI = await fetchQuotes();
+    const allQuotes = [...quotesFromDB, ...quotesFromAPI];
+    res.json(allQuotes);
   } catch (error) {
     res.status(500).json({ message: 'Error retrieving quotes', error });
   }
 });
 
 // POST /api/entries
-
 router.post('/entries', async (req, res) => {
   const { Id, title, content, quote } = req.body;
   try {
     const newEntry = new Entry({ Id, title, content, quote });
     const savedEntry = await newEntry.save();
-    const completeEntry = await Entry.findById(savedEntry._id); // Fetch the complete entry data
+    const completeEntry = await Entry.findById(savedEntry._id);
     res.json(completeEntry);
   } catch (error) {
     res.status(500).json({ message: 'Error creating journal entry', error });
   }
 });
-
 
 // GET /api/entries/:id
 router.get('/entries/:id', async (req, res) => {
@@ -67,7 +78,7 @@ router.get('/entries/:id', async (req, res) => {
 // PUT /api/entries/:id
 router.put('/entries/:id', async (req, res) => {
   const entryId = req.params.id;
-  const { Id, title, content, quote} = req.body;
+  const { Id, title, content, quote } = req.body;
   try {
     const updatedEntry = await Entry.findByIdAndUpdate(entryId, { Id, title, content, quote }, { new: true });
     if (!updatedEntry) {
